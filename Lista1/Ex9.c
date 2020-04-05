@@ -4,38 +4,46 @@
 //     Para mulheres: (62.1*h) - 44.7
 
 #include <stdio.h>
-
+int calcula(char sexo, int alt);
 
 
 int main(){
 
-    char sexo;
+    char sexo = 'm';
     float alt = 0.0;
-
-    printf("Digite sua altura em metros: ");
+    
+    printf("Digite sua altura em metros: \n");
+    
     scanf("%f", &alt);
     fflush(stdin);
     printf("Digite M para mulher e H para homem: \n");
+    
     scanf("%c", &sexo);
     fflush(stdin);
+    sexo = getchar();
     
-    switch (sexo)
-    {
-    case 'M':
-        printf("Peso ideal: %f", (62.1*alt)-44.7);
-        return 0;
-    case 'm':
-        printf("Peso ideal: %f", (62.1*alt)-44.7);
-        return 0;
-    case 'h' || 'H' :
-        printf("Peso ideal: %f", (72.7*alt) - 58);
-        return 0;
-    default:
-        break;
-    }
-
-
+    printf("%d\n", calcula(sexo, alt));
     getchar();
     return 0;
 
+}
+
+int calcula(char sexo, int alt){
+switch(sexo)
+    {
+    case 'M':
+        return (62.1*alt)-44.7;
+    case 'm':
+        return (62.1*alt)-44.7;
+        
+    case 'H':
+        return (72.7*alt) - 58;
+    case 'h' :
+         return (72.7*alt) - 58;
+        
+    default:
+        return -1;
+    }
+
+    return -2;
 }
